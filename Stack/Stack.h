@@ -3,7 +3,6 @@ class StackNode {
 public:
 	T value;
 	StackNode* next;
-public:
 	// stack node constructor
 	StackNode(T value);
 };
