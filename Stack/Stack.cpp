@@ -11,7 +11,7 @@ StackNode<T>::StackNode(T value) {
 
 // stack constructor
 template <class T>
-Stack<T>::Stack() { top = nullptr; }
+Stack<T>::Stack() { this->top = nullptr; }
 
 // stack destructor
 template <class T>
@@ -37,7 +37,7 @@ T Stack<T>::pop() {
 	}
 	else {
 		StackNode<T>* node = top;
-		top = node->next;
+		this->top = node->next;
 		return node->value;
 	}
 }
@@ -52,7 +52,7 @@ void Stack<T>::push(T value) {
 	if (!isEmpty()) {
 		newTop->next = top;
 	}
-	top = newTop;
+	this->top = newTop;
 }
 
 /**
@@ -64,7 +64,7 @@ T Stack<T>::peek() {
 	if (isEmpty()) {
 		return NULL;
 	}
-	return top->value;
+	return this->top->value;
 }
 
 /**
@@ -72,7 +72,7 @@ T Stack<T>::peek() {
 */
 template <class T>
 bool Stack<T>::isEmpty() {
-	if (!top) {
+	if (!this->top) {
 		return true;
 	}
 	return false;
