@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Stack.h"
+#include "Stack.cpp"
 
 int main() {
 	Stack<int>* stack = new Stack<int>();

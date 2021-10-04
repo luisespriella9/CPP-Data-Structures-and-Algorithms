@@ -33,7 +33,7 @@ template <class T>
 T Stack<T>::pop() {
 	StackNode<T>* node = top;
 	if (isEmpty()) {
-		return -1;
+		return NULL;
 	}
 	else {
 		StackNode<T>* node = top;
@@ -61,8 +61,8 @@ void Stack<T>::push(T value) {
 */
 template <class T>
 T Stack<T>::peek() {
-	if (top == nullptr) {
-		return -1;
+	if (isEmpty()) {
+		return NULL;
 	}
 	return top->value;
 }
