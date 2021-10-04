@@ -2,21 +2,24 @@
 #include "Queue.h"
 
 // Queue node constructor
-QueueNode::QueueNode(int value)
+template <class T>
+QueueNode<T>::QueueNode(T value)
 {
     this->value = value;
     this->next = nullptr;
 }
 
 // Queue constructor
-Queue::Queue()
+template <class T>
+Queue<T>::Queue()
 {
     this->first = nullptr;
     this->last = nullptr;
 }
 
 // Queue destructor
-Queue::~Queue()
+template <class T>
+Queue<T>::~Queue()
 {
     while (!this->isEmpty()){
         this->remove();
@@ -27,9 +30,10 @@ Queue::~Queue()
  * Add item to end of queue
  * @param[value] value to add
  */
-void Queue::add(int value)
+template <class T>
+void Queue<T>::add(T value)
 {
-    QueueNode* node = new QueueNode(value);
+    QueueNode<T>* node = new QueueNode<T>(value);
     if (!this->first && !this->last){
         this->first = node;
         this->last = node;
@@ -45,13 +49,15 @@ void Queue::add(int value)
 }
 /**
  * Remove first item added to queue
+ * @return removed item
  */
-int Queue::remove()
+template <class T>
+T Queue<T>::remove()
 {
     if (!this->first){
         return NULL;
     }
-    QueueNode* node = this->first;
+    QueueNode<T>* node = this->first;
     this->first = this->first->next;
     int value = node->value;
     delete node;
@@ -59,8 +65,10 @@ int Queue::remove()
 }
 /**
  * Get first item from queue
+ * @return first item in queue
  */
-int Queue::peek()
+template <class T>
+T Queue<T>::peek()
 {
     if (isEmpty()){
         return NULL;
@@ -71,7 +79,8 @@ int Queue::peek()
 /**
  * Check if queue is empty
  */
-bool Queue::isEmpty()
+template <class T>
+bool Queue<T>::isEmpty()
 {
     if (!this->first){
         return true;

@@ -1,15 +1,17 @@
+template <class T>
 class QueueNode{
     public:
-        int value;
-        QueueNode* next;
+        T value;
+        QueueNode<T>* next;
         // Queue node constructor
-        QueueNode(int value);
+        QueueNode(T value);
 };
 
+template <class T>
 class Queue{
     private:
-        QueueNode* first;
-        QueueNode* last;
+        QueueNode<T>* first;
+        QueueNode<T>* last;
     public:
         // Queue constructor
         Queue();
@@ -19,17 +21,19 @@ class Queue{
          * Add item to end of queue
          * @param[value] value to add
          */
-        void add(int value);
+        void add(T value);
         /**
          * Remove first item added to queue
          */
-        int remove();
+        T remove();
         /**
          * Get first item from queue
+         * @return removed item
          */
-        int peek(); 
+        T peek(); 
         /**
          * Check if queue is empty
+         * @return first item in queue
          */
         bool isEmpty();
 };

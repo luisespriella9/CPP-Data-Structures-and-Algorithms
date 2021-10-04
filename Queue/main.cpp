@@ -1,7 +1,7 @@
 #include "Queue.cpp"
 
 int main(){
-    Queue* queue = new Queue();
+    Queue<int>* queue = new Queue<int>();
     std::cout << "Initialized Queue \n";
 	std::cout << "Queue is empty: " << queue->isEmpty() << "\n";
 	std::cout << "add 5 \n";
