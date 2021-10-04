@@ -16,12 +16,8 @@ Stack<T>::Stack() { this->top = nullptr; }
 // stack destructor
 template <class T>
 Stack<T>::~Stack() {
-	StackNode<T>* nodePointer = top;
-	while (nodePointer != nullptr) {
-		StackNode<T>* deletePointer = nodePointer;
-		StackNode<T>* nextPointer = nodePointer->next;
-		delete deletePointer;
-		nodePointer = nextPointer;
+	while (!this->isEmpty()){
+		this->pop();
 	}
 }
 
@@ -38,7 +34,9 @@ T Stack<T>::pop() {
 	else {
 		StackNode<T>* node = top;
 		this->top = node->next;
-		return node->value;
+		int value = node->value;
+		delete node;
+		return value;
 	}
 }
 

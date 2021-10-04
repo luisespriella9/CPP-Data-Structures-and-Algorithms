@@ -3,7 +3,7 @@
 
 int main() {
 	Stack<int>* stack = new Stack<int>();
-	std::cout << "Initialozed Stack \n";
+	std::cout << "Initialized Stack \n";
 	std::cout << "stack is empty: " << stack->isEmpty() << "\n";
 	std::cout << "push 5 \n";
 	stack->push(5);
